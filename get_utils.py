@@ -2,6 +2,9 @@ from set_data_utils import create_cursor
 
 
 def refactor_query(query, id, key_file):
+    """
+    Функция приводит запрос к БД к нужному виду.
+    """
     refactored_query = ''
     if 'product' in key_file:
         refactored_query = query[:-2] + id + ';'
@@ -11,6 +14,9 @@ def refactor_query(query, id, key_file):
 
 
 def get_by_id(config, file_name, keys, id):
+    """
+    Функция возвращает json-строку по запросу к БД и переданным ключам.
+    """
     cursor = create_cursor(config)
     if cursor:
         with open(file_name, 'r', encoding='UTF-8') as f:
@@ -30,6 +36,9 @@ def get_by_id(config, file_name, keys, id):
 
 
 def get_product_by_id(config, id):
+    """
+    Функция возвращает json-строку по id товара.
+    """
     file = 'get_queries/get_product_by_id_query.sql'
     keys = ['id', 'name', 'category', 'price']
     response = get_by_id(config, file, keys, id)
@@ -37,6 +46,9 @@ def get_product_by_id(config, id):
 
 
 def get_category_by_id(config, id):
+    """
+    Функция возвращает json-строку по id категории.
+    """
     file = 'get_queries/get_category_by_id_query.sql'
     keys = ['id', 'name', 'description', 'products_list']
     response = get_by_id(config, file, keys, id)
