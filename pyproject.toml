@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "northwind-traders"
+version = "0.1.0"
+description = ""
+authors = ["anna-golovacheva <anna.ch.ollala@gmail.com>"]
+readme = "README.md"
+packages = [{include = "northwind_traders"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2 = "^2.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
